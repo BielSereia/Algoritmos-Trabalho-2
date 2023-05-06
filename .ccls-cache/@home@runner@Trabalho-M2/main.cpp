@@ -1,11 +1,12 @@
 #include <iostream>
 #include <time.h>
+
 using namespace std;
 
 int main() {
   srand(time(NULL));
 
-  int exit = 1;
+  int menu = 1;
 
   do {
     int input;
@@ -17,35 +18,120 @@ int main() {
 
     switch (input) {
     case 1:
-      exit = 0;
+      menu = 0;
       system("clear");
       break;
     case 2:
-      cout << "\nArthur Queiroz, Victor Menezes Ferreira, Gabriel Antônio "
-              "Sereia, Felipe Pardauil - Maio/2023 - Rafael Ballottin "
-              "Martins.\n";
+      system("clear");
+      cout << "Equipe de desenvolvimento: \n";
+      cout << "- Arthur Queiroz.\n";
+      cout << "- Victor Menezes Ferreira.\n";
+      cout << "- Gabriel Antônio Sereia.\n";
+      cout << "- Felipe Pardauil.\n";
+      cout << "Mês/Ano: maio/2023.\n";
+      cout << "Professor: Rafael Ballottin Martins.\n";
       break;
     case 3:
       system("clear");
 
-      int a, b, c, d;
+      int randomA, randomB, randomC, randomD;
 
       do {
-        a = rand() % 6 + 1;
-        b = rand() % 6 + 1;
-        c = rand() % 6 + 1;
-        d = rand() % 6 + 1;
-      } while (a == b || a == c || a == d || b == c || b == d || c == d);
+        randomA = rand() % 6 + 1;
+        randomB = rand() % 6 + 1;
+        randomC = rand() % 6 + 1;
+        randomD = rand() % 6 + 1;
+      } while (randomA == randomB || randomA == randomC || randomA == randomD ||
+               randomB == randomC || randomB == randomD || randomC == randomD);
 
-      // teste dos números aleatórios
-      // cout << a << endl;
-      // cout << b << endl;
-      // cout << c << endl;
-      // cout << d << endl;
+      int tentativas;
+      tentativas = 10;
+
+      while (tentativas >= 0) {
+        int inputA, inputB, inputC, inputD;
+
+        if (tentativas == 0) {
+          system("clear");
+          cout << "Você perdeu.\n";
+          cout << "Ultima tentativa: " << inputA << inputB << inputC << inputD
+               << endl;
+          cout << "O código era: " << randomA << randomB << randomC << randomD
+               << endl;
+          break;
+        }
+
+        cout << tentativas << " tentativas restantes.\n";
+
+        for (int i = 1; i <= 4; i++) {
+          cout << "Digite o " << i << "o numero.\n";
+
+          switch (i) {
+          case 1:
+            cin >> inputA;
+            break;
+          case 2:
+            cin >> inputB;
+            break;
+          case 3:
+            cin >> inputC;
+            break;
+          case 4:
+            cin >> inputD;
+            break;
+          default:
+            break;
+          }
+        }
+
+        int corretosPosicaoCorreta = 0;
+        int corretosPosicaoIncorreta = 0;
+
+        if (inputA == randomA) {
+          corretosPosicaoCorreta++;
+        } else if (inputA == randomB || inputA == randomC ||
+                   inputA == randomD) {
+          corretosPosicaoIncorreta++;
+        }
+
+        if (inputB == randomB) {
+          corretosPosicaoCorreta++;
+        } else if (inputB == randomA || inputB == randomC ||
+                   inputB == randomD) {
+          corretosPosicaoIncorreta++;
+        }
+
+        if (inputC == randomC) {
+          corretosPosicaoCorreta++;
+        } else if (inputC == randomA || inputC == randomB ||
+                   inputC == randomD) {
+          corretosPosicaoIncorreta++;
+        }
+
+        if (inputD == randomD) {
+          corretosPosicaoCorreta++;
+        } else if (inputD == randomA || inputD == randomB ||
+                   inputD == randomC) {
+          corretosPosicaoIncorreta++;
+        }
+
+        if (corretosPosicaoCorreta == 4) {
+          cout << "Parabéns! Você acertou o código.\n";
+          break;
+        }
+
+        cout << "Números corretos na posição correta: "
+             << corretosPosicaoCorreta << endl;
+        cout << "Números corretos, mas na posição incorreta: "
+             << corretosPosicaoIncorreta << endl;
+
+        tentativas--;
+      }
 
       break;
     default:
+      system("clear");
+      cout << "Opção invalida. Por favor, tente novamente.\n";
       break;
     }
-  } while (exit == 1);
+  } while (menu == 1);
 }
