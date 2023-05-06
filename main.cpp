@@ -1,28 +1,39 @@
+/*
+  Autores:
+  - Arthur Queiroz
+  - Victor Menezes Ferreira
+  - Gabriel Antônio Sereia
+  - Felipe Pardauil
+*/
+
 #include <iostream>
-#include <time.h>
+#include <time.h> // habilitar função time
 
 using namespace std;
 
 int main() {
-  srand(time(NULL));
+  srand(time(NULL)); // Semente randomica gerada a partir da hora do sistema
 
   int menu = 1;
 
   do {
     int input;
 
-    cout << "\n1 - Sair.\n";
+    cout << "1 - Sair.\n";
     cout << "2 - Sobre.\n";
     cout << "3 - Jogar.\n";
     cin >> input;
 
     switch (input) {
-    case 1:
-      menu = 0;
-      system("clear");
+    case 1: // Caso escolha sair do jogo
+      menu = 0; // Define o valor do menu para 0 para terminar o programa
+      
+      system("clear"); // Limpa o terminal
+      
       break;
-    case 2:
-      system("clear");
+    case 2: // Caso escolha ver o sobre
+      system("clear"); // Limpa o terminal
+      
       cout << "Equipe de desenvolvimento: \n";
       cout << "- Arthur Queiroz.\n";
       cout << "- Victor Menezes Ferreira.\n";
@@ -30,17 +41,18 @@ int main() {
       cout << "- Felipe Pardauil.\n";
       cout << "Mês/Ano: maio/2023.\n";
       cout << "Professor: Rafael Ballottin Martins.\n";
+      
       break;
     case 3:
-      system("clear");
+      system("clear"); // Limpa o terminal
 
       int randomA, randomB, randomC, randomD;
 
       do {
-        randomA = rand() % 6 + 1;
-        randomB = rand() % 6 + 1;
-        randomC = rand() % 6 + 1;
-        randomD = rand() % 6 + 1;
+        randomA = rand() % 6 + 1; // Gera um numero aleatório entre 1 e 6
+        randomB = rand() % 6 + 1; // Gera um numero aleatório entre 1 e 6
+        randomC = rand() % 6 + 1; // Gera um numero aleatório entre 1 e 6
+        randomD = rand() % 6 + 1; // Gera um numero aleatório entre 1 e 6
       } while (randomA == randomB || randomA == randomC || randomA == randomD ||
                randomB == randomC || randomB == randomD || randomC == randomD);
 
@@ -52,11 +64,13 @@ int main() {
 
         if (tentativas == 0) {
           system("clear");
+          
           cout << "Você perdeu.\n";
           cout << "Ultima tentativa: " << inputA << inputB << inputC << inputD
                << endl;
           cout << "O código era: " << randomA << randomB << randomC << randomD
                << endl;
+          
           break;
         }
 
@@ -130,7 +144,9 @@ int main() {
       break;
     default:
       system("clear");
+      
       cout << "Opção invalida. Por favor, tente novamente.\n";
+      
       break;
     }
   } while (menu == 1);
