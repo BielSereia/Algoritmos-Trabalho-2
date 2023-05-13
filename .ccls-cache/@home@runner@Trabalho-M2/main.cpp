@@ -14,36 +14,18 @@ using namespace std;
 int main() {
   srand(time(NULL)); // Semente randomica gerada a partir da hora do sistema
 
-  int menu = 1;
+  int menu = 1, tentativas = 10;
 
   do {
     int input;
 
-    cout << "1 - Sair.\n";
+    cout << "1 - Jogar.\n";
     cout << "2 - Sobre.\n";
-    cout << "3 - Jogar.\n";
+    cout << "3 - Sair.\n";
     cin >> input;
 
     switch (input) {
-    case 1: // Caso escolha sair do jogo
-      menu = 0; // Define o valor do menu para 0 para terminar o programa
-      
-      system("clear"); // Limpa o terminal
-      
-      break;
-    case 2: // Caso escolha ver o sobre
-      system("clear"); // Limpa o terminal
-      
-      cout << "Equipe de desenvolvimento: \n";
-      cout << "- Arthur Queiroz.\n";
-      cout << "- Victor Menezes Ferreira.\n";
-      cout << "- Gabriel Antônio Sereia.\n";
-      cout << "- Felipe Pardauil.\n";
-      cout << "Mês/Ano: maio/2023.\n";
-      cout << "Professor: Rafael Ballottin Martins.\n";
-      
-      break;
-    case 3:
+    case 1:            // Caso escolha: Jogar
       system("clear"); // Limpa o terminal
 
       int randomA, randomB, randomC, randomD;
@@ -56,24 +38,23 @@ int main() {
       } while (randomA == randomB || randomA == randomC || randomA == randomD ||
                randomB == randomC || randomB == randomD || randomC == randomD);
 
-      int tentativas;
-      tentativas = 10;
-
       while (tentativas >= 0) {
         int inputA, inputB, inputC, inputD;
 
         if (tentativas == 0) {
           system("clear");
-          
+
           cout << "Você perdeu.\n";
           cout << "Ultima tentativa: " << inputA << inputB << inputC << inputD
                << endl;
           cout << "O código era: " << randomA << randomB << randomC << randomD
                << endl;
-          
+
           break;
         }
 
+        cout <<  randomA << randomB << randomC << randomD;
+        
         cout << tentativas << " tentativas restantes.\n";
 
         for (int i = 1; i <= 4; i++) {
@@ -142,11 +123,26 @@ int main() {
       }
 
       break;
-    default:
-      system("clear");
-      
+    case 2:            // Caso escolha: Sobre
+      system("clear"); // Limpa o terminal
+
+      cout << "Equipe de desenvolvimento: \n";
+      cout << "- Arthur Queiroz.\n";
+      cout << "- Victor Menezes Ferreira.\n";
+      cout << "- Gabriel Antônio Sereia.\n";
+      cout << "- Felipe Pardauil.\n";
+      cout << "Mês/Ano: maio/2023.\n";
+      cout << "Professor: Rafael Ballottin Martins.\n";
+      cout << "Disciplia: Algoritmos e Programação.\n";
+
+      break;
+    case 3:            // Caso escolha: Sair
+      menu = 0;        // Define o valor do menu para 0 para terminar o programa
+      system("clear"); // Limpa o terminal
+      break;
+    default:           // Caso a escolha não seja 1, 2 ou 3
+      system("clear"); // Limpar o terminal
       cout << "Opção invalida. Por favor, tente novamente.\n";
-      
       break;
     }
   } while (menu == 1);
