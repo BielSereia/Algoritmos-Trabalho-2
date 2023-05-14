@@ -14,12 +14,10 @@ using namespace std;
 int main() {
   srand(time(NULL)); // Semente randomica gerada a partir da hora do sistema
 
-  int menu = 1, tentativas = 10;
+  int menu = 1, input, tentativas;
 
   do {
-    int input;
-
-    cout << "1 - Jogar.\n";
+    cout << "\n1 - Jogar.\n";
     cout << "2 - Sobre.\n";
     cout << "3 - Sair.\n";
     cin >> input;
@@ -27,6 +25,8 @@ int main() {
     switch (input) {
     case 1:            // Caso escolha: Jogar
       system("clear"); // Limpa o terminal
+
+      tentativas = 10;
 
       int randomA, randomB, randomC, randomD;
 
@@ -53,12 +53,10 @@ int main() {
           break;
         }
 
-        cout <<  randomA << randomB << randomC << randomD;
-        
-        cout << tentativas << " tentativas restantes.\n";
+        cout << endl << tentativas << " tentativas restantes:\n";
 
         for (int i = 1; i <= 4; i++) {
-          cout << "Digite o " << i << "o numero.\n";
+          cout << "Digite o " << i << "º numero.\n";
 
           switch (i) {
           case 1:
@@ -123,6 +121,7 @@ int main() {
       }
 
       break;
+
     case 2:            // Caso escolha: Sobre
       system("clear"); // Limpa o terminal
 
@@ -133,17 +132,20 @@ int main() {
       cout << "- Felipe Pardauil.\n";
       cout << "Mês/Ano: maio/2023.\n";
       cout << "Professor: Rafael Ballottin Martins.\n";
-      cout << "Disciplia: Algoritmos e Programação.\n";
+      cout << "Disciplina: Algoritmos e Programação.\n" << endl;
 
       break;
     case 3:            // Caso escolha: Sair
       menu = 0;        // Define o valor do menu para 0 para terminar o programa
       system("clear"); // Limpa o terminal
+
       break;
     default:           // Caso a escolha não seja 1, 2 ou 3
       system("clear"); // Limpar o terminal
       cout << "Opção invalida. Por favor, tente novamente.\n";
+
       break;
     }
+
   } while (menu == 1);
 }
