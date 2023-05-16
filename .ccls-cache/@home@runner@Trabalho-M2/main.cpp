@@ -4,7 +4,8 @@
   - Victor Menezes Ferreira
   - Gabriel Antônio Sereia
   - Felipe Pardauil
-*/
+  - Matheus Artur Uller Menozzo
+*/ 
 
 #include <iostream>
 #include <time.h> // habilitar função time
@@ -130,7 +131,8 @@ int main() {
       cout << "- Victor Menezes Ferreira.\n";
       cout << "- Gabriel Antônio Sereia.\n";
       cout << "- Felipe Pardauil.\n";
-      cout << "Mês/Ano: maio/2023.\n";
+      cout << "- Matheus Artur Uller Menozzo. \n";
+      cout << "Mês/Ano: Maio/2023.\n";
       cout << "Professor: Rafael Ballottin Martins.\n";
       cout << "Disciplina: Algoritmos e Programação.\n" << endl;
 
